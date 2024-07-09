@@ -1,0 +1,100 @@
+replicaCount: 1
+
+image:
+  registry: docker.io
+  repository: ubuntu/bind9
+  pullPolicy: IfNotPresent
+  tag: 9.18-22.04_edge
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  automount: true
+  annotations: {}
+  name: ""
+
+podAnnotations:
+  linkerd.io/inject: "enabled"
+
+podLabels: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: LoadBalancer
+  port: 53
+
+volumes:
+  - name: bind-config
+    configMap:
+      name: bind-config
+
+volumeMounts:
+  - mountPath: /etc/bind
+    name: bind-config
+
+ingress:
+  enabled: false
+
+resources: {}
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+config: 
+  named.conf: |
+    acl "trusted" { 0.0.0.0/0; localhost; };
+
+    options {
+      directory "/var/cache/bind";
+
+      listen-on { any; };
+      listen-on-v6 { none; };
+
+      allow-query { trusted; };
+      allow-recursion { trusted; };
+
+      forwarders {
+        1.1.1.1;
+        8.8.8.8;
+      };
+    };
+
+    view "trusted" {
+      match-clients { trusted; };
+      allow-recursion { trusted; };
+
+      zone "propertylab.internal" IN {
+          type master;
+          file "/etc/bind/propertylab.internal.zone";
+      };
+    };
+
+  propertylab.internal.zone: |
+    $TTL 1d
+    $ORIGIN propertylab.internal.
+
+    @         IN      SOA   ns.propertylab.internal. info.propertylab.internal. (
+                            2023072000 ; serial number
+                            12h        ; refresh
+                            15m        ; update retry
+                            3w         ; expiry
+                            2h         ; minimum
+                            )
+              IN      NS    ns.propertylab.internal.
+    ns        IN      A     192.168.100.221
+    dev-grafana   IN      A     192.168.100.220
