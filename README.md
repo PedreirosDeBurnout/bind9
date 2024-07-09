@@ -26,7 +26,7 @@ This repository contains the configuration and setup scripts for a Bind9 DNS ser
 
 1. **Clone the repository**:
    ```sh
-   git clone https://github.com/yourusername/bind9-service.git
+   git clone https://github.com/PedreirosDeBurnout/bind9.git
    cd bind9-service
    ```
 
