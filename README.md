@@ -1,6 +1,10 @@
 # Bind9 Service Repository
 
-![Bind9 Setup](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmN6c2QzeXR2NWhtMjhtZGphNWRkNDAwaTN3MnpuaHIza3R4anBoMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTiTnxpQ3ghPiB2Hp6/giphy.gif)
+<div class="center-image">
+   <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmN6c2QzeXR2NWhtMjhtZGphNWRkNDAwaTN3MnpuaHIza3R4anBoMyZlcD12MV9pbnRlcm5faWZfYnlfaWQmY3Q9Zw/xTiTnxpQ3ghPiB2Hp6/giphy.gif" alt="Bind9 Setup">
+</div>
+
+<!-- ![Bind9 Setup](https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExMmN6c2QzeXR2NWhtMjhtZGphNWRkNDAwaTN3MnpuaHIza3R4anBoMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xTiTnxpQ3ghPiB2Hp6/giphy.gif) -->
 
 ## Overview
 
