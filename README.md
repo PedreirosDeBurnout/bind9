@@ -1,5 +1,7 @@
 # Bind9 Service Repository
 
+![Bind9 Setup](https://blog.remontti.com.br/wp-content/uploads/2021/10/bind9.16_debian_11_bullseye.png)
+
 ## Overview
 
 This repository contains the configuration and setup scripts for a Bind9 DNS server. Bind9 is a widely used open-source DNS server that provides domain name resolution services. This repository aims to simplify the deployment and management of Bind9 in various environments.
